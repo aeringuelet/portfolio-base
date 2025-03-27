@@ -1,0 +1,12 @@
+---
+interface Props {
+    href: string;
+}
+
+const { href } = Astro.props;
+const isSelfPage = Astro.url.pathname.includes(href);
+---
+
+<a href={href} class='hover:underline text-lg'>
+    <slot />
+</a>
