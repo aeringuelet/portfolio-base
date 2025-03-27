@@ -1,5 +1,6 @@
 ---
-import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import NavBar from '@/components/NavBar.astro';
 import '@/styles/starwind.css';
 
 interface Props {
@@ -19,14 +20,10 @@ const { pageTitle } = Astro.props;
         <title>{pageTitle}</title>
     </head>
     <body>
-        <Header />
+        <NavBar />
 
-        <div class=''>
-            <slot />
-        </div>
+        <slot />
 
-        <footer>
-            <p>FOOTER</p>
-        </footer>
+        <Footer />
     </body>
 </html>

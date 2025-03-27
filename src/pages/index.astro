@@ -4,7 +4,15 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout pageTitle='Home'>
-    <Section sectionName='hello' class='py-32'>Hello, world!</Section>
-    <Section sectionName='test' class='py-32'>test, world!</Section>
-    <Section sectionName='test2' class='py-32'>test 2, world!</Section>
+    <Section
+        sectionName='hello'
+        class=`h-screen pt-24 bg-[url(../assets/mountain.jpg)] bg-cover flex justify-center`>
+        <h1
+            class='text-7xl text-foreground font-semibold md:mt-[20vh] mt-[10vh] text-center'
+            style='text-shadow: 0.2rem 0.2rem 1.5rem white;'>
+            Are you ready?
+        </h1>
+    </Section>
+    <Section sectionName='test' class='h-screen bg-accent-foreground' />
+    <Section sectionName='test2' class='h-screen bg-accent' />
 </Layout>

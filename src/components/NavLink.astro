@@ -1,12 +1,15 @@
 ---
 interface Props {
     href: string;
+    class?: string;
 }
 
-const { href } = Astro.props;
+const { href, class: classname } = Astro.props;
 const isSelfPage = Astro.url.pathname.includes(href);
 ---
 
-<a href={href} class='hover:underline text-lg'>
+<a
+    href={href}
+    class=`hover:underline text-lg tracking-wide ${classname ? classname : ''}`>
     <slot />
 </a>

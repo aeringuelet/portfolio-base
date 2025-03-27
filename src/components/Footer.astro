@@ -1,0 +1,20 @@
+---
+import discord from '../assets/discord.svg';
+import facebook from '../assets/facebook.svg';
+import instagram from '../assets/instagram.svg';
+import linkedin from '../assets/linkedin.svg';
+import x from '../assets/x.svg';
+import SocialIcon from './SocialIcon.astro';
+---
+
+<footer
+    class='h-[18vh] bg-background flex flex-col justify-center items-center'>
+    <div class='flex mb-2 gap-2'>
+        <SocialIcon class='w-6 h-6' src={linkedin.src} alt='LinkedIn logo' />
+        <SocialIcon class='w-6 h-6' src={x.src} alt='X logo' />
+        <SocialIcon class='w-6 h-6' src={facebook.src} alt='Facebook logo' />
+        <SocialIcon class='w-6 h-6' src={instagram.src} alt='Instagram logo' />
+        <SocialIcon class='w-6 h-6' src={discord.src} alt='Discord logo' />
+    </div>
+    <p class='text-xs'>© 2025 Your Company. All rights reserved</p>
+</footer>
