@@ -1,18 +1,79 @@
 ---
 import Section from '@/components/Section.astro';
+import Button from '@/components/starwind/button';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle
+} from '@/components/starwind/card';
+import ArrowIcon from '../assets/arrow.svg';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout pageTitle='Home'>
     <Section
         sectionName='hello'
-        class=`h-screen pt-24 bg-[url(../assets/mountain.jpg)] bg-cover flex justify-center`>
-        <h1
-            class='text-7xl text-foreground font-semibold md:mt-[20vh] mt-[10vh] text-center'
-            style='text-shadow: 0.2rem 0.2rem 1.5rem white;'>
-            Are you ready?
-        </h1>
+        class=`h-screen pt-24 bg-[url(../assets/mountain.jpg)] bg-cover bg-fixed`>
+        <div class='flex flex-col space-y-32'>
+            <h1
+                class='text-7xl text-foreground font-semibold md:mt-[20vh] mt-[10vh] text-center bg-clip-text'
+                style='text-shadow: 0 0 1rem white;'>
+                Are you ready?
+            </h1>
+            <ArrowIcon
+                class='h-[10vh] text-foreground animate-bounce'
+                style='filter: drop-shadow(0 0 1rem white);'
+            />
+        </div>
     </Section>
-    <Section sectionName='test' class='h-screen bg-accent-foreground' />
+    <Section sectionName='test' class='h-screen bg-accent-foreground'>
+        <div
+            class='flex space-x-16 mx-24 justify-center content-center flex-wrap h-[inherit]'>
+            <Card class='w-1/4' style='box-shadow: 0rem 0rem 0.6rem white;'>
+                <CardHeader>
+                    <CardTitle>Option #1</CardTitle>
+                    <CardDescription>This is the first option.</CardDescription>
+                </CardHeader>
+                <CardContent class='flex flex-col gap-4'>
+                    A text that goes along with the option
+                </CardContent>
+                <CardFooter>
+                    <Button class={'w-full'} type='submit'>Take a Look!</Button>
+                </CardFooter>
+            </Card>
+            <Card class='w-1/4' style='box-shadow: 0rem 0rem 0.6rem white;'>
+                <CardHeader>
+                    <CardTitle>Option #2</CardTitle>
+                    <CardDescription>This is the second option.</CardDescription
+                    >
+                </CardHeader>
+                <CardContent class='flex flex-col gap-4'>
+                    A text that goes along with the option #2 but a little bit
+                    longer
+                </CardContent>
+                <CardFooter>
+                    <Button class={'w-full'} type='submit'>Let's see</Button>
+                </CardFooter>
+            </Card>
+            <Card class='w-1/4' style='box-shadow: 0rem 0rem 0.6rem white;'>
+                <CardHeader>
+                    <CardTitle>Option #3</CardTitle>
+                    <CardDescription>This is the third option.</CardDescription>
+                </CardHeader>
+                <CardContent class='flex flex-col gap-4'>
+                    A text that is similar to #2 but this corresponds to #3 to
+                    say something different.
+                </CardContent>
+                <CardFooter>
+                    <Button class={'w-full'} type='submit'
+                        >I want to go there!</Button
+                    >
+                </CardFooter>
+            </Card>
+        </div>
+    </Section>
     <Section sectionName='test2' class='h-screen bg-accent' />
 </Layout>
