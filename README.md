@@ -1,11 +1,15 @@
 # Portfolio Base
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ec392539-4ef9-4999-9d99-5d9c68a6c939/deploy-status?branch=netlify-deploy)](https://app.netlify.com/sites/portfolio-base-astro/deploys)
+
+Go To Deployed Site: [portfolio-base-astro.netlify.app](https://portfolio-base-astro.netlify.app/)
+
 ## Tech Stack
 
--   Astro
--   Tailwind CSS
--   Starwind UI (Tailwind CSS components)
--   SolidJS
+- Astro
+- Tailwind CSS
+- Starwind UI (Tailwind CSS components)
+- SolidJS
 
 ## Commands
 
