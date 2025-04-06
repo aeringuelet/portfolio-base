@@ -4,18 +4,20 @@
     "version": "0.0.1",
     "scripts": {
         "dev": "astro dev",
-        "build": "astro build",
+        "build": "astro check && astro build",
         "preview": "astro preview",
         "astro": "astro",
         "starwind:add": "npx starwind@latest add"
     },
     "dependencies": {
+        "@astrojs/check": "^0.9.4",
         "@astrojs/node": "^9.1.3",
         "@tailwindcss/forms": "^0.5.10",
         "@tailwindcss/vite": "^4.0.15",
         "astro": "^5.5.4",
         "tailwind-variants": "^1.0.0",
         "tailwindcss": "^4.0.15",
-        "tailwindcss-animate": "^1.0.7"
+        "tailwindcss-animate": "^1.0.7",
+        "typescript": "^5.8.3"
     }
 }
