@@ -1,15 +1,12 @@
 ---
+import CardCTA from '@/components/CardCTA.astro';
+import FeatureEntry from '@/components/FeatureEntry.astro';
 import Section from '@/components/Section.astro';
-import Button from '@/components/starwind/button';
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle
-} from '@/components/starwind/card';
-import ArrowIcon from '../assets/arrow.svg';
+import ArrowIcon from '../assets/icons/arrow.svg';
+import BoltIcon from '../assets/icons/bolt.svg';
+import ChatBubbleIcon from '../assets/icons/chat-bubble.svg';
+import CodeIcon from '../assets/icons/code.svg';
+import FireIcon from '../assets/icons/fire.svg';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -19,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
         class=`h-screen pt-24 bg-[url(../assets/mountain.jpg)] bg-cover bg-fixed`>
         <div class='flex flex-col space-y-32'>
             <h1
-                class='text-7xl text-foreground font-semibold md:mt-[20vh] mt-[10vh] text-center bg-clip-text'
+                class='text-7xl text-foreground font-semibold mt-[10vh] text-center bg-clip-text'
                 style='text-shadow: 0 0 1rem white;'>
                 Are you ready?
             </h1>
@@ -29,51 +26,66 @@ import Layout from '../layouts/Layout.astro';
             />
         </div>
     </Section>
-    <Section sectionName='test' class='h-screen bg-accent-foreground'>
+    <Section
+        sectionName='options'
+        class='bg-accent-foreground flex md:min-h-[70vh] justify-center'>
         <div
-            class='flex space-x-16 mx-24 justify-center content-center flex-wrap h-[inherit]'>
-            <Card class='w-1/4' style='box-shadow: 0rem 0rem 0.6rem white;'>
-                <CardHeader>
-                    <CardTitle>Option #1</CardTitle>
-                    <CardDescription>This is the first option.</CardDescription>
-                </CardHeader>
-                <CardContent class='flex flex-col gap-4'>
-                    A text that goes along with the option
-                </CardContent>
-                <CardFooter>
-                    <Button class={'w-full'} type='submit'>Take a Look!</Button>
-                </CardFooter>
-            </Card>
-            <Card class='w-1/4' style='box-shadow: 0rem 0rem 0.6rem white;'>
-                <CardHeader>
-                    <CardTitle>Option #2</CardTitle>
-                    <CardDescription>This is the second option.</CardDescription
-                    >
-                </CardHeader>
-                <CardContent class='flex flex-col gap-4'>
-                    A text that goes along with the option #2 but a little bit
-                    longer
-                </CardContent>
-                <CardFooter>
-                    <Button class={'w-full'} type='submit'>Let's see</Button>
-                </CardFooter>
-            </Card>
-            <Card class='w-1/4' style='box-shadow: 0rem 0rem 0.6rem white;'>
-                <CardHeader>
-                    <CardTitle>Option #3</CardTitle>
-                    <CardDescription>This is the third option.</CardDescription>
-                </CardHeader>
-                <CardContent class='flex flex-col gap-4'>
-                    A text that is similar to #2 but this corresponds to #3 to
-                    say something different.
-                </CardContent>
-                <CardFooter>
-                    <Button class={'w-full'} type='submit'
-                        >I want to go there!</Button
-                    >
-                </CardFooter>
-            </Card>
+            class='w-full flex my-12 flex-wrap justify-around items-center gap-24 lg:mx-12'>
+            <CardCTA
+                title='Option #1'
+                subtitle='This is the first option.'
+                bodyText='Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
+                class='h-fit w-[80vw] lg:w-[30vw] 2xl:w-[20vw]'
+            />
+            <CardCTA
+                title='Option #2'
+                subtitle='This is the third option.'
+                bodyText='Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
+                class='h-fit w-[80vw] lg:w-[30vw] 2xl:w-[20vw]'
+            />
+            <CardCTA
+                title='Option #3'
+                subtitle='This is the second option.'
+                bodyText='Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
+                class='h-fit w-[80vw] lg:w-[30vw] 2xl:w-[20vw]'
+            />
+            <CardCTA
+                title='Option #4'
+                subtitle='This is the second option.'
+                bodyText='Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
+                class='h-fit w-[80vw] lg:w-[30vw] 2xl:w-[20vw]'
+            />
         </div>
     </Section>
-    <Section sectionName='test2' class='h-screen bg-accent' />
+    <Section
+        sectionName='features'
+        class='bg-accent flex justify-center md:min-h-[70vh]'>
+        <div
+            class='w-full flex flex-col my-12 gap-12 justify-around mx-12 md:mx-[25vw]'>
+            <FeatureEntry
+                class=''
+                header='Lorem ipsum'
+                description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla, Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae. Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
+                iconSrc={CodeIcon.src}
+            />
+            <FeatureEntry
+                class=''
+                header='Ipsum lorem'
+                description='Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
+                iconSrc={BoltIcon.src}
+            />
+            <FeatureEntry
+                class=''
+                header='Vestibulum ante'
+                description='Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
+                iconSrc={ChatBubbleIcon.src}
+            />
+            <FeatureEntry
+                class=''
+                header='Faucibus'
+                description='Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
+                iconSrc={FireIcon.src}
+            />
+        </div>
+    </Section>
 </Layout>

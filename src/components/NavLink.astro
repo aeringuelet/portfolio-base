@@ -10,6 +10,6 @@ const isSelfPage = Astro.url.pathname.includes(href);
 
 <a
     href={href}
-    class=`hover:underline text-lg tracking-wide ${classname ? classname : ''}`>
+    class=`hover:underline text-lg tracking-wide ${isSelfPage ? 'font-bold' : ''} ${classname ? classname : ''}`>
     <slot />
 </a>

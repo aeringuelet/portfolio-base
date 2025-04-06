@@ -3,18 +3,17 @@ import astro from '../assets/astro.svg';
 import NavLink from './NavLink.astro';
 ---
 
-<nav class='fixed w-full flex h-24 px-24 bg-background z-50'>
-    <div class='flex w-full items-center mx-6'>
-        <div class='basis-1/3'>
+<nav class='fixed w-full flex h-18 bg-background z-50 md:px-24'>
+    <div class='flex w-full items-center justify-around'>
+        <div class='md:basis-1/3'>
             <a href='/' class='w-auto'>
                 <img src={astro.src} alt='Astro logo' />
             </a>
         </div>
-        <div class='basis-1/3 flex justify-between px-24'>
+        <div class='flex gap-x-2 md:basis-1/3'>
             <NavLink href='/work' class='dark:text-white'>Work</NavLink>
             <NavLink href='/about' class='dark:text-white'>About</NavLink>
             <NavLink href='/contact' class='dark:text-white'>Contact</NavLink>
         </div>
-        <div class='basis-1/3'></div>
     </div>
 </nav>

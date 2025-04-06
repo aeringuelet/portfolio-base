@@ -1,0 +1,22 @@
+---
+interface Props {
+    header: string;
+    description: string;
+    class?: string;
+    iconSrc?: string;
+}
+
+const { iconSrc, class: className, header, description } = Astro.props;
+---
+
+<div class=`flex ${className}`>
+    <img src={iconSrc} class='h-8 mr-2' />
+    <div>
+        <h1 class='font-semibold text-2xl'>
+            {header}
+        </h1>
+        <p>
+            {description}
+        </p>
+    </div>
+</div>

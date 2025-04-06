@@ -1,0 +1,33 @@
+---
+import Button from '@/components/starwind/button';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle
+} from '@/components/starwind/card';
+
+interface Props {
+    title: string;
+    subtitle: string;
+    bodyText: string;
+    class?: string;
+}
+
+const { title, subtitle, bodyText, class: classname } = Astro.props;
+---
+
+<Card class={classname} style='box-shadow: 0rem 0rem 0.6rem white;'>
+    <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{subtitle}</CardDescription>
+    </CardHeader>
+    <CardContent>
+        <p>{bodyText}</p>
+    </CardContent>
+    <CardFooter>
+        <Button class={'w-full'} type='submit'>Take a Look!</Button>
+    </CardFooter>
+</Card>
