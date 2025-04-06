@@ -1,0 +1,30 @@
+---
+import { type Project } from '../../types/Project';
+
+export interface Props {
+    index: number;
+    project: Project;
+}
+
+const {
+    index,
+    project: { image, title, description, startDate, endDate }
+} = Astro.props;
+---
+
+<div
+    class={`bg-[url("${image}")] bg-cover bg-fixed h-screen flex flex-col text-accent`}>
+    <div
+        class='bg-foreground/70 h-[inherit] justify-center px-[8vw] pt-[15vh] lg:content-center'>
+        <p class='text-6xl lg:text-9xl'>{index + 1}</p>
+        <h2 class='text-3xl font-semibold pt-[3vh] pb-[2vh] lg:text-5xl'>
+            {title}
+        </h2>
+        <p class='text-xl italic'>
+            {startDate} - {endDate}
+        </p>
+        <p class='text-lg py-[5vh] lg:w-1/2 lg:text-2xl'>
+            {description}
+        </p>
+    </div>
+</div>

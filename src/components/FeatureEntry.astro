@@ -1,16 +1,26 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
     header: string;
     description: string;
     class?: string;
-    iconSrc?: string;
+    icon?: ImageMetadata;
 }
 
-const { iconSrc, class: className, header, description } = Astro.props;
+const { icon, class: className, header, description } = Astro.props;
 ---
 
 <div class=`flex ${className}`>
-    <img src={iconSrc} class='h-8 mr-2' />
+    {
+        icon !== undefined && (
+            <Image
+                class='h-8 w-auto mr-2'
+                src={icon}
+                alt={`Entry Icon for ${header}`}
+            />
+        )
+    }
     <div>
         <h1 class='font-semibold text-2xl'>
             {header}

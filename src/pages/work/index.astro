@@ -1,39 +1,20 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-
-import ChevronDown from '../../assets/icons/chevron-down.svg';
-
 export const prerender = false;
 
-const projects = [
-    {
-        slug: 'project-1',
-        title: 'Project title 1',
-        description:
-            'Project description Project description Project description Project description Project description Project description Project description Project description',
-        startDate: '2022-01-01',
-        endDate: '2022-12-31',
-        image: '../assets/mountain.jpg'
-    },
-    {
-        slug: 'project-2',
-        title: 'Project title 2',
-        description:
-            'Project description Project description Project description Project description Project description Project description Project description Project description',
-        startDate: '2023-01-01',
-        endDate: '2023-12-31',
-        image: '../assets/exPastelBg.jpg'
-    },
-    {
-        slug: 'project-3',
-        title: 'Project title 3',
-        description:
-            'Project description Project description Project description Project description Project description Project description Project description Project description',
-        startDate: '2023-01-01',
-        endDate: '2023-12-31',
-        image: '../assets/mountain.jpg'
-    }
-];
+import Layout from '@/layouts/Layout.astro';
+import ChevronDown from '../../assets/icons/chevron-down.svg';
+import ProjectSection from './_ProjectSection.astro';
+
+import type { Project } from '@/types/Project';
+import { GET } from '../../api/projects';
+
+let response = await GET(Astro);
+const projects: Project[] = await response.json();
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/*.{jpeg,jpg,png,gif}',
+    { eager: true }
+);
 ---
 
 <Layout pageTitle='Work'>
@@ -57,23 +38,10 @@ const projects = [
             <ChevronDown class='size-18 text-accent stroke-2 lg:size-24' />
         </div>
     </div>
+
     {
         projects.map((project, index) => (
-            <div
-                class={`bg-[url(${project.image})] bg-cover bg-fixed h-screen flex flex-col text-accent`}>
-                <div class='bg-foreground/70 h-[inherit] justify-center px-[8vw] pt-[15vh] lg:content-center'>
-                    <p class='text-6xl lg:text-9xl'>{index + 1}</p>
-                    <h2 class='text-3xl font-semibold pt-[3vh] pb-[2vh] lg:text-5xl'>
-                        {project.title}
-                    </h2>
-                    <p class='text-xl italic'>
-                        {project.startDate} - {project.endDate}
-                    </p>
-                    <p class='text-lg py-[5vh] lg:w-1/2 lg:text-2xl '>
-                        {project.description}
-                    </p>
-                </div>
-            </div>
+            <ProjectSection project={project} index={index} />
         ))
     }
 </Layout>

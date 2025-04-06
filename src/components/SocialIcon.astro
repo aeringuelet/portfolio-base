@@ -1,9 +1,13 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import { Image } from 'astro:assets';
 
-interface Props extends HTMLAttributes<'img'> {}
+interface Props {
+    icon: ImageMetadata;
+    alt: string;
+    class?: string;
+}
 
-const { src, alt, ...rest } = Astro.props;
+const { alt, icon, class: className } = Astro.props;
 ---
 
-<img src={src} alt={alt} {...rest} />
+<Image src={icon} alt={alt} class={className} />
