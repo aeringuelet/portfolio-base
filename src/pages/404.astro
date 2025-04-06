@@ -1,0 +1,14 @@
+---
+export const prerender = false;
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout pageTitle='404: Not found'>
+    <div
+        class='flex flex-col items-center justify-center bg-foreground'
+        style='color: var(--accent); text-shadow: 0 0 0.5rem var(--accent); height: 82vh;'>
+        <h1 class='text-7xl'>404</h1>
+        <p class='text-2xl text-accent'>Page not found</p>
+    </div>
+</Layout>

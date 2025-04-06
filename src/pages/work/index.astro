@@ -1,0 +1,79 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+import ChevronDown from '../../assets/icons/chevron-down.svg';
+
+export const prerender = false;
+
+const projects = [
+    {
+        slug: 'project-1',
+        title: 'Project title 1',
+        description:
+            'Project description Project description Project description Project description Project description Project description Project description Project description',
+        startDate: '2022-01-01',
+        endDate: '2022-12-31',
+        image: '../assets/mountain.jpg'
+    },
+    {
+        slug: 'project-2',
+        title: 'Project title 2',
+        description:
+            'Project description Project description Project description Project description Project description Project description Project description Project description',
+        startDate: '2023-01-01',
+        endDate: '2023-12-31',
+        image: '../assets/exPastelBg.jpg'
+    },
+    {
+        slug: 'project-3',
+        title: 'Project title 3',
+        description:
+            'Project description Project description Project description Project description Project description Project description Project description Project description',
+        startDate: '2023-01-01',
+        endDate: '2023-12-31',
+        image: '../assets/mountain.jpg'
+    }
+];
+---
+
+<Layout pageTitle='Work'>
+    <div
+        class='flex flex-wrap bg-foreground px-[10vw] h-screen content-center text-center gap-[10vh] lg:gap-24 lg:text-left lg:content-baseline lg:px-32'>
+        <h1
+            class='w-full text-9xl font-semibold text-accent lg:mt-64'
+            style='color: var(--accent); text-shadow: 0 0 0.5rem var(--accent);'>
+            Work
+        </h1>
+        <p
+            class='w-full text-2xl text-accent xl:underline xl:decoration-4 xl:underline-offset-12 lg:text-4xl'>
+            Here is a showcase of some of my <span class='text-amber-500/90'
+                >past</span
+            >, <span class='text-amber-600/90'>present</span> and <span
+                class='text-amber-700/90'>future</span
+            > projects.
+        </p>
+        <div
+            class='w-full flex justify-center pt-[12vh] lg:pt-[20vh] animate-pulse'>
+            <ChevronDown class='size-18 text-accent stroke-2 lg:size-24' />
+        </div>
+    </div>
+    {
+        projects.map((project, index) => (
+            <div
+                class={`bg-[url(${project.image})] bg-cover bg-fixed h-screen flex flex-col text-accent`}>
+                <div class='bg-foreground/70 h-[inherit] justify-center px-[8vw] pt-[15vh] lg:content-center'>
+                    <p class='text-6xl lg:text-9xl'>{index + 1}</p>
+                    <h2 class='text-3xl font-semibold pt-[3vh] pb-[2vh] lg:text-5xl'>
+                        {project.title}
+                    </h2>
+                    <p class='text-xl italic'>
+                        {project.startDate} - {project.endDate}
+                    </p>
+                    <p class='text-lg py-[5vh] lg:w-1/2 lg:text-2xl '>
+                        {project.description}
+                    </p>
+                </div>
+            </div>
+        ))
+    }
+</Layout>
