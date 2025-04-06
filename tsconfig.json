@@ -5,7 +5,10 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/*": ["src/*"]
+            "@assets/*": ["src/assets/*"],
+            "@components/*": ["src/components/*"],
+            "@baseTypes/*": ["src/types/*"],
+            "@api/*": ["src/api/*"]
         }
     }
 }

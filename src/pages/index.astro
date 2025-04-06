@@ -1,12 +1,13 @@
 ---
-import CardCTA from '@/components/CardCTA.astro';
-import FeatureEntry from '@/components/FeatureEntry.astro';
-import Section from '@/components/Section.astro';
-import ArrowIcon from '../assets/icons/arrow.svg';
-import BoltIcon from '../assets/icons/bolt.svg';
-import ChatBubbleIcon from '../assets/icons/chat-bubble.svg';
-import CodeIcon from '../assets/icons/code.svg';
-import FireIcon from '../assets/icons/fire.svg';
+import ArrowIcon from '@assets/icons/arrow.svg';
+import BoltIcon from '@assets/icons/bolt.svg';
+import ChatBubbleIcon from '@assets/icons/chat-bubble.svg';
+import CodeIcon from '@assets/icons/code.svg';
+import FireIcon from '@assets/icons/fire.svg';
+import CardCTA from '@components/CardCTA.astro';
+import FeatureEntry from '@components/FeatureEntry.astro';
+import Section from '@components/Section.astro';
+
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -59,29 +60,29 @@ import Layout from '../layouts/Layout.astro';
     </Section>
     <Section
         sectionName='features'
-        class='bg-accent flex justify-center md:min-h-[70vh]'>
+        class='bg-accent flex justify-center md:min-h-[50vh]'>
         <div
-            class='w-full flex flex-col my-12 gap-12 justify-around mx-12 md:mx-[25vw]'>
+            class='w-full flex flex-col my-12 mx-8 gap-12 flex-wrap justify-center content-center md:flex-row md:mx-[15vw] lg:gap-x-32'>
             <FeatureEntry
-                class=''
+                class='xl:w-[25vw]'
                 header='Lorem ipsum'
                 description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla, Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae. Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
                 icon={CodeIcon}
             />
             <FeatureEntry
-                class=''
+                class='xl:w-[25vw]'
                 header='Ipsum lorem'
                 description='Aenean commodo mauris id leoaliquet ornare. Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
                 icon={FireIcon}
             />
             <FeatureEntry
-                class=''
+                class='xl:w-[25vw]'
                 header='Vestibulum ante'
                 description='Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
                 icon={BoltIcon}
             />
             <FeatureEntry
-                class=''
+                class='xl:w-[25vw]'
                 header='Faucibus'
                 description='Sed accumsan pretium nulla vel tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultricesposuere cubilia curae'
                 icon={ChatBubbleIcon}

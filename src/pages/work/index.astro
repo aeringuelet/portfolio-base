@@ -1,12 +1,12 @@
 ---
 export const prerender = false;
 
-import Layout from '@/layouts/Layout.astro';
-import ChevronDown from '../../assets/icons/chevron-down.svg';
+import ChevronDown from '@assets/icons/chevron-down.svg';
+import Layout from '../../layouts/Layout.astro';
 import ProjectSection from './_ProjectSection.astro';
 
-import type { Project } from '@/types/Project';
-import { GET } from '../../api/projects';
+import { GET } from '@api/projects';
+import type { Project } from '@baseTypes/Project';
 
 let response = await GET(Astro);
 const projects: Project[] = await response.json();
@@ -41,7 +41,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
     {
         projects.map((project, index) => (
-            <ProjectSection project={project} index={index} />
+            <ProjectSection
+                project={{
+                    ...project,
+                    image: images[project.image].default.src
+                }}
+                index={index}
+            />
         ))
     }
 </Layout>
