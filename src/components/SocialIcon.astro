@@ -1,13 +1,11 @@
 ---
-import { Image } from 'astro:assets';
-
 interface Props {
-    icon: ImageMetadata;
+    iconSrc: string;
     alt: string;
     class?: string;
 }
 
-const { alt, icon, class: className } = Astro.props;
+const { alt, iconSrc, class: className } = Astro.props;
 ---
 
-<Image src={icon} alt={alt} class={className} />
+<img src={iconSrc} alt={alt} class={className} />
