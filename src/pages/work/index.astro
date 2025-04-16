@@ -2,14 +2,14 @@
 export const prerender = false;
 
 import ChevronDown from '@assets/icons/chevron-down.svg';
+import { actions } from 'astro:actions';
 import Layout from '../../layouts/Layout.astro';
 import ProjectSection from './_ProjectSection.astro';
 
-import { GET } from '@api/projects';
-import type { Project } from '@baseTypes/Project';
-
-let response = await GET(Astro);
-const projects: Project[] = await response.json();
+const { data: projects, error } = await Astro.callAction(
+    actions.project.getAll,
+    null
+);
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
     '/src/assets/*.{jpeg,jpg,png,gif}',
@@ -40,14 +40,22 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     </div>
 
     {
-        projects.map((project, index) => (
-            <ProjectSection
-                project={{
-                    ...project,
-                    image: images[project.image].default.src
-                }}
-                index={index}
-            />
-        ))
+        !error && projects ? (
+            projects.map((project, index) => (
+                <ProjectSection
+                    project={{
+                        ...project,
+                        image: images[project.image].default.src
+                    }}
+                    index={index}
+                />
+            ))
+        ) : (
+            <div class='w-full flex justify-center'>
+                <p class='text-2xl text-accent'>
+                    There was an error fetching the projects.
+                </p>
+            </div>
+        )
     }
 </Layout>

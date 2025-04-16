@@ -15,8 +15,8 @@ export class ProjectStoreMongo implements ProjectStore {
         return await this.projectsCollection.find().toArray();
     };
 
-    add: ProjectStore['add'] = async () => {
-        throw new Error('Not implemented');
+    add: ProjectStore['add'] = async (project: Project) => {
+        this.projectsCollection.insertOne(project);
     };
 
     find: ProjectStore['find'] = async () => {

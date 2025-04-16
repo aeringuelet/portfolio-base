@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const connectionUri = import.meta.env.MONGO_URI;
+const connectionUri = import.meta.env.LOCAL_URI;
 
 export const mongoClient = async () => {
     const client = new MongoClient(connectionUri);
