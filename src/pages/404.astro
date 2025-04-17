@@ -3,10 +3,11 @@ import NavBarLayout from '../layouts/NavBarLayout.astro';
 ---
 
 <NavBarLayout pageTitle='404: Not found'>
+    <!-- move footer and navbar heights to a css variable to avoid making this weird and hardcoded calculation  -->
     <div
-        class='flex flex-col items-center justify-center bg-foreground'
-        style='color: var(--accent); text-shadow: 0 0 0.5rem var(--accent); height: 82vh;'>
-        <h1 class='text-7xl'>404</h1>
-        <p class='text-2xl text-accent'>Page not found</p>
+        class='flex flex-col items-center justify-center bg-foreground h-[calc(82vh_-_var(--spacing)_*_18)]'
+        style='text-shadow: 0 0 0.5rem white;'>
+        <h1 class='text-7xl text-white'>404</h1>
+        <p class='text-2xl text-accent text-white'>Page not found</p>
     </div>
 </NavBarLayout>
