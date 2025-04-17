@@ -3,7 +3,7 @@ export const prerender = false;
 
 import ChevronDown from '@assets/icons/chevron-down.svg';
 import { actions } from 'astro:actions';
-import Layout from '../../layouts/Layout.astro';
+import NavBarLayout from '../../layouts/NavBarLayout.astro';
 import ProjectSection from './_ProjectSection.astro';
 
 const { data: projects, error } = await Astro.callAction(
@@ -17,7 +17,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<Layout pageTitle='Work'>
+<NavBarLayout pageTitle='Work'>
     <div
         class='flex flex-wrap bg-foreground px-[10vw] h-screen content-center text-center gap-[10vh] lg:gap-24 lg:text-left lg:content-baseline lg:px-32'>
         <h1
@@ -58,4 +58,4 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             </div>
         )
     }
-</Layout>
+</NavBarLayout>

@@ -7,7 +7,8 @@
         "build": "astro check && astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "starwind:add": "npx starwind@latest add"
+        "starwind:add": "npx starwind@latest add",
+        "starwind:update": "npx starwind@latest update"
     },
     "dependencies": {
         "@astrojs/check": "^0.9.4",

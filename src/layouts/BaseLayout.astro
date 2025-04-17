@@ -1,6 +1,4 @@
 ---
-import Footer from '@components/Footer.astro';
-import NavBar from '@components/NavBar.astro';
 import '../styles/starwind.css';
 
 interface Props {
@@ -20,12 +18,6 @@ const { pageTitle } = Astro.props;
         <title>{pageTitle}</title>
     </head>
     <body>
-        <NavBar />
-
-        <div class='pt-18'>
-            <slot />
-        </div>
-
-        <Footer />
+        <slot />
     </body>
 </html>

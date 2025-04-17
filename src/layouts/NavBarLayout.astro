@@ -1,0 +1,22 @@
+---
+import Footer from '@components/Footer.astro';
+import NavBar from '@components/NavBar.astro';
+import '../styles/starwind.css';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+    pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <NavBar />
+
+    <div class='pt-18'>
+        <slot />
+    </div>
+
+    <Footer />
+</BaseLayout>

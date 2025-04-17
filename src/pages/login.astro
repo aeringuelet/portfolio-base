@@ -1,0 +1,60 @@
+---
+import PageLogo from '@components/PageLogo.astro';
+import Button from '@components/starwind/button';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle
+} from '@components/starwind/card';
+import { Input } from '@components/starwind/input';
+import { Label } from '@components/starwind/label';
+import BaseLayout from 'src/layouts/BaseLayout.astro';
+---
+
+<BaseLayout pageTitle='Login'>
+    <div class='flex items-center justify-center h-screen bg-foreground'>
+        <Card
+            class='max-w-[75vw] lg:max-w-[35vw]'
+            style='box-shadow: 0rem 0rem 0.6rem white;'>
+            <CardHeader>
+                <div
+                    class='flex justify-center border-b-2 pb-4 mb-4 border-foreground'>
+                    <PageLogo />
+                </div>
+                <CardTitle>Login</CardTitle>
+                <CardDescription>Sign in to your account</CardDescription>
+            </CardHeader>
+            <CardContent class='flex flex-wrap justify-center space-y-2'>
+                <div class='w-full'>
+                    <Label for='email' size='md'>Email</Label>
+                    <Input
+                        id='email'
+                        size='lg'
+                        type={'email'}
+                        placeholder={'example@email.com'}
+                    />
+                </div>
+                <div class='w-full'>
+                    <Label for='pass' size='md'>Password</Label>
+                    <Input
+                        id='pass'
+                        size='lg'
+                        type='password'
+                        placeholder={'********'}
+                    />
+                </div>
+                <CardFooter class='pt-6 w-full'>
+                    <div class='flex flex-wrap w-full justify-center space-y-4'>
+                        <Button class={'w-full'} type='submit'>Login</Button>
+                        <Button size='xs' href='/' variant={'ghost'}
+                            >Go back to main page</Button
+                        >
+                    </div>
+                </CardFooter>
+            </CardContent>
+        </Card>
+    </div>
+</BaseLayout>
