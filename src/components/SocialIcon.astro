@@ -4,10 +4,13 @@ import { Image } from 'astro:assets';
 interface Props {
     icon: ImageMetadata;
     alt: string;
+    href?: string;
     class?: string;
 }
 
-const { alt, icon, class: className } = Astro.props;
+const { alt, icon, href, class: className } = Astro.props;
 ---
 
-<Image src={icon} alt={alt} class={className} />
+<a href={href} class={`hover:cursor-pointer ${className}`}>
+    <Image src={icon} alt={alt} class='w-[inherit] h-[inherit]' />
+</a>

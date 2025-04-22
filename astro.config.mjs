@@ -6,11 +6,7 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-    experimental: {
-        svg: {
-            mode: 'sprite'
-        }
-    },
+    experimental: {},
 
     vite: {
         plugins: [tailwindcss()]
